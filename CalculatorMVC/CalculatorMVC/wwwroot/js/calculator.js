@@ -21,7 +21,11 @@ function calculate(event) {
     } else {
         if (!((clickedButtonValue === '+' || clickedButtonValue === '-' || clickedButtonValue === '*' || clickedButtonValue === '÷') &&
             (display.value === '' || display.value.slice(-1) === '+' || display.value.slice(-1) === '-' || display.value.slice(-1) === '*' || display.value.slice(-1) === '÷'))) {
+            if (display.value.slice(-1) === '0' && display.value.length === 1) {
+                display.value = display.value.replace(/.$/, clickedButtonValue);
+            } else {
             display.value += clickedButtonValue;
+            }
         }
     }
 }
